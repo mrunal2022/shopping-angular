@@ -8,7 +8,8 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
-    new Recipe('Chicken Biryani', 'Chicken Biryani is a delicious savory rice dish that is loaded with spicy marinated chicken, caramelized onions, and flavorful saffron rice', 'http://www.cooktube.in/wp-content/uploads/2017/08/mutton-biryani.jpg')
+    new Recipe('Chicken Biryani', 'Chicken Biryani is a delicious savory rice dish that is loaded with spicy marinated chicken, caramelized onions, and flavorful saffron rice', 'https://geekrobocook.com/wp-content/uploads/2021/05/Muradabadi-chicken-biryani.jpg'),
+    new Recipe('Dosa', 'Dosa is a popular South Indian thin crepe made with fermented rice and lentil batter.', 'https://wallpapercave.com/wp/wp6734909.jpg')
   ];
 
   constructor() { }
