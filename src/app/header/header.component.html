@@ -16,16 +16,16 @@
 
     </ul>
     <ul class="navbar-nav  ms-auto">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle btn btn-outline-dark" role="button">Manage</a>
-        <ul class="dropdown-menu">
-          <li><a href="">Save</a></li>
-          <li><a href="">Fetch Data</a></li>
+      <li ngbDropdown class="dropdown" appDropdown>
+        <a ngbDropdownToggle href="#" class="dropdown-toggle btn btn-outline-dark" role="button">Manage</a>
+        <div ngbDropdownMenu class="dropdown-menu">
+      <li><a href="">Save</a></li>
+      <li><a href="">Fetch Data</a></li>
 
-        </ul>
-      </li>
+  </div>>
+  </li>
 
-    </ul>
+  </ul>
 
   </div>
 </nav>
