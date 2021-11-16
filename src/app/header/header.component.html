@@ -7,22 +7,23 @@
   <div class="collapse navbar-collapse" id="collapsibleNavId">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/recipes">Recipes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping list</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/shopping-list">Shopping list</a>
       </li>
 
 
     </ul>
     <ul class="navbar-nav  ms-auto">
       <li ngbDropdown class="dropdown" appDropdown>
-        <a ngbDropdownToggle href="#" class="dropdown-toggle btn btn-outline-dark" role="button">Manage</a>
+        <a ngbDropdownToggle class="dropdown-toggle btn btn-outline-dark" role="button"
+          style="cursor: pointer;">Manage</a>
         <div ngbDropdownMenu class="dropdown-menu">
-      <li><a href="">Save</a></li>
-      <li><a href="">Fetch Data</a></li>
+      <li><a style="cursor: pointer;">Save</a></li>
+      <li><a style="cursor: pointer;">Fetch Data</a></li>
 
-  </div>>
+  </div>
   </li>
 
   </ul>
