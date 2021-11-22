@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
@@ -26,6 +26,9 @@ export class RecipeEditComponent implements OnInit {
           this.initForm();
         }
       );
+  }
+  get controls() { // a getter!
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
   onSubmit() {
     // const newRecipe = new Recipe(
@@ -79,7 +82,7 @@ export class RecipeEditComponent implements OnInit {
               'name': new FormControl(ingredient.name, Validators.required),
               'amount': new FormControl(ingredient.amount, [
                 Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/)
+                Validators.pattern(/^[1-9]+[0-9]* $/)
               ])
             })
           );

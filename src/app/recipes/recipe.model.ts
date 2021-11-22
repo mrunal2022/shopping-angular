@@ -1,5 +1,5 @@
 import { Ingredient } from "../shared/ingredient.module";
-
+import { ReactiveFormsModule } from "@angular/forms";
 export class Recipe {
     public name: string;
     public description: string;
