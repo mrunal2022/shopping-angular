@@ -14,8 +14,10 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
-  ingredientForm: FormGroup;
-
+  ingredientForm = new FormGroup({
+    'name': new FormControl("", Validators.required),
+    'amount': new FormControl("", Validators.required)
+  });
   editedItem: Ingredient;
   id: number;
 
@@ -52,21 +54,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.onClear();
 
   }
-  private initForm() {
-    const ingredient = this.slService.getIngredient(this.id);
 
-    let ingredientName = '';
-    let ingredientAmount = '';
-
-    this.ingredientForm = new FormGroup({
-      'name': new FormControl(ingredientName, Validators.required),
-      'amount': new FormControl(ingredientAmount, Validators.required)
-
-
-
-    });
-
-  }
 
   onClear() {
     this.slForm.reset();
