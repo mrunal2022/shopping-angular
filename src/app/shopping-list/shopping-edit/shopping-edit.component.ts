@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/shared/ingredient.module';
 import { ShoppingListService } from '../shopping-list.service';
@@ -14,7 +14,10 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
+  ingredientForm: FormGroup;
+
   editedItem: Ingredient;
+  id: number;
 
   constructor(private slService: ShoppingListService) { }
 
@@ -31,23 +34,38 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
             amount: this.editedItem.amount
           })
 
+
         }
       );
 
   }
-  onSubmit(form: NgForm) {
+  onSubmit() {
 
 
-    const value = form.value;
 
-    const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode) {
-      this.slService.updateIngredient(this.editedItemIndex, newIngredient);
+      this.slService.updateIngredient(this.editedItemIndex, this.ingredientForm.value);
     } else {
-      this.slService.addIngredient(newIngredient);
+      this.slService.addIngredient(this.ingredientForm.value);
     }
     this.editMode = false;
-    form.reset();
+    this.onClear();
+
+  }
+  private initForm() {
+    const ingredient = this.slService.getIngredient(this.id);
+
+    let ingredientName = '';
+    let ingredientAmount = '';
+
+    this.ingredientForm = new FormGroup({
+      'name': new FormControl(ingredientName, Validators.required),
+      'amount': new FormControl(ingredientAmount, Validators.required)
+
+
+
+    });
+
   }
 
   onClear() {
