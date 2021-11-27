@@ -15,6 +15,18 @@
 
 
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <div class="dropdown" appDropdown ngbDropdown>
+        <button ngbDropdownToggle class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+        </div>
+      </div>
+    </ul>
 
   </div>
 </nav>
